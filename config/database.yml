@@ -13,10 +13,10 @@ default: &default
 
 development:
   <<: *default
-  #database: db/development.sqlite3
-  database: todo
-  username: todouser
-  password: todopassword
+  database: db/development.sqlite3
+  #database: todo
+  #username: todouser
+  #password: todopassword
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
