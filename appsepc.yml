@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/todo_lists
+hooks:
+  ApplicationStop:
+    - location: deployment_scripts/stop.sh
+      timeout: 60
+      runas: root
+  BeforeInstall:
+    - location: deployment_scripts/cleanup.sh
+      timeout: 60
+      runas: root
+  AfterInstall:
+    - location: deployment_scripts/depend.sh
+      timeout: 60
+      runas: root
+  ApplicationStart:
+    - location: deployment_scripts/app_start.sh
+      timout: 60
+      runas: root
+  ValidateService:
+    - location: deployment_scripts/validate.sh
+      timeout: 60
+      runas: root
